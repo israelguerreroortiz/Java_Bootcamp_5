@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div {
+            display: grid;
+            place-content: center;
+            background-color: yellowgreen;
+            width: 25%;
+            height: 20vh;
+        }
+        .bounce {
+            display: grid;
+            place-content: center;
+            border-radius: 50%;
+            width: 50px;
+            aspect-ratio: 1/1.5;
+            background-color: royalblue;
+            animation: rebota 5s linear infinite;
+        }
+
+        @keyframes rebota {
+                0% {
+                    transform: translate(-20px, -80px);
+                }
+                20% {
+                    transform: translate(0px, 0px);
+                }
+                40% {
+                    transform: translate(20px, -60px);
+                }
+                60% {
+                    transform: translate(40px, 0px);
+                }
+                80% {
+                    transform: translate(58px, -50px);
+                }
+                100% {
+                    transform: translate(69px, 0px);
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="div">Contenedor</div>
+    <p class="bounce">Pelota</p>
+</body>
+</html>
