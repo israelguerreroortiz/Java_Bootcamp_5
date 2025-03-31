@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #ffe62c;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -50px;
+    left: -50px;
+    background-color: black;
+    rotate: 45deg;
+    width: 100px;
+    height: 100px;
+}
+
+.wrapper::before {
+    content: "";
+    position: fixed;
+    top: -50px;
+    right: -50px;
+    background-color: black;
+    rotate: 45deg;
+    width: 100px;
+    height: 100px;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -42px;
+    right: -42px;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.wrapper::after {
+    content: "";
+    position: fixed;
+    bottom: -42px;
+    left: -42px;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.wrapper {
+
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 4rem;
+}
+
+.header-search {
+    input {
+        background-color: #fffcec;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+
+        ::placeholder {
+            opacity: 0.5;
+        }
+    }
+}
+
+.main-section {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding-top: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.pokemon-card {
+    border: 1px solid lightgray;
+    .pokemon-img-container {
+        position: relative;
+        background-color: #dfdfdf;
+        height: 50%;
+        p {
+            font-weight: bold;
+            background-color: #d1cdca;
+            color: #8c735e;
+            padding: 0.25rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+    .pokemon-info {
+        height: 50%;
+        padding: 1rem;
+        padding-bottom: 3rem;
+        text-align: left;
+        background-color: #ffffff;
+        .pokemon-name::first-letter {
+            text-transform: capitalize;
+        }
+        .pokemon-types {
+            display: flex;
+            gap: 0.25rem;
+            padding-bottom: 0.5rem;
+            .type {
+                border: 1px solid #8c735e;
+                color: #8c735e;
+                border-radius: 0.55rem;
+                padding: 0.15rem;
+                text-transform: uppercase;
+            }
+        }
+        .pokemon-evolution {
+            border-left: 6px solid #8c735e;
+            :first-child {
+                
+            }
+        }
+    }
+}
