@@ -127,6 +127,10 @@ body::after {
     width: 100%;
     padding: 1rem;
     text-align: left;
+    .pokemon-name {
+      font-size: 1.25rem;
+      padding-bottom: 0.25rem;
+    }
     .pokemon-name::first-letter {
       text-transform: capitalize;
     }
@@ -136,6 +140,8 @@ body::after {
       justify-content: start;
       width: fit-content;
       gap: 0.3rem;
+      padding-bottom: 0.5rem;
+      font-size: 0.75rem;
       .type {
         border: 1px solid #855a37;
         color: #896c54;
@@ -153,6 +159,7 @@ body::after {
         font-size: 1.25rem;
       }
       p {
+        padding-left: 0.25rem;
       }
     }
   }
