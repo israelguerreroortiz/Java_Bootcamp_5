@@ -5,69 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .wrapper {
+        display: grid;
+        place-content: center;
+        height: 100vh;
+        background-color: antiquewhite;
+      }
+      h1{
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .flex-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        width: 420px;
+        padding: 5rem;
+        background-color: darkred;
+        border: 5px solid rgb(98, 92, 92);
+        border-radius: 25px;
+        input {
+          padding: 0.5rem 1rem;
+          font-size: 1rem;
         }
-        .wrapper {
-            display: grid;
-            place-content: center;
-            height: 100vh;
-            background-color: antiquewhite;
+        button {
+          padding: 0.5rem 1rem;
+          background-color: rgb(8, 93, 154);
+          color: white;
+          border-radius: 5px;
         }
-        .flex-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            width: 400px;
-            padding: 5rem;
-            background-color: darkred;
-            border: 5px solid rgb(98, 92, 92);
-            border-radius: 25px;
-            input {
-                padding: 0.5rem 1rem;
-                font-size: 1rem;
-            }
-            button {
-                padding: 0.5rem 1rem;
-                background-color: rgb(8, 93, 154);
-                color: white;
-                border-radius: 5px;
-            }
-            .text {
-                color: red;
-                margin-top: 1rem;
-                text-align: center;
-                font-size: 1.5rem;
-            }
+      }
+        .text {
+          margin-top: 1rem;
+          text-align: center;
+          font-size: 1.5rem;
         }
-        
     </style>
   </head>
   <body>
     <div class="wrapper">
+      <h1>Adivine el numero aleatorio del 1 al 100</h1>
       <div class="flex-container">
-        <input type="number" name="number" />
+        <input type="number" name="number" placeholder="Adivine el número"/>
         <button onclick="guessNumber()">Adivinar</button>
       </div>
       <p class="text"></p>
     </div>
     <script>
       let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+
+      console.log("El número aleatorio es: ", numeroAleatorio);
+
       const guessNumber = () => {
         const userTry = parseFloat(
           document.querySelector('input[name="number"]').value
         );
-        if (userTry < numeroAleatorio)
+        if (userTry < numeroAleatorio) {
+          document.querySelector(".text").style.color = "red";
           document.querySelector(".text").innerHTML = "El número es mayor";
-        else if (userTry > numeroAleatorio)
+        } else if (userTry > numeroAleatorio) {
+          document.querySelector(".text").style.color = "red";
           document.querySelector(".text").innerHTML = "El número es menor";
-        else
-        {
-            document.querySelector(".text").style.color = 'green';
-            document.querySelector(".text").innerHTML = "¡Correcto!";
+        } else {
+          document.querySelector(".text").style.color = "green";
+          document.querySelector(".text").innerHTML = "¡Correcto!";
         }
       };
     </script>
