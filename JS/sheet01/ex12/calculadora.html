@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        display: grid;
+        place-content: center;
+        height: 500px;
+        max-width: 1024px;
+      }
+      .input-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      .btn-container {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="input-container">
+        <input type="number" name="op1" />
+        <input type="number" name="op2" />
+      </div>
+      <div class="btn-container">
+        <button class="btn sum" onclick="sum()">Sumar</button>
+        <button class="btn rest" onclick="rest()">Restar</button>
+        <button class="btn mult" onclick="mult()">Multiplicar</button>
+        <button class="btn divide" onclick="divide()">Dividir</button>
+      </div>
+      <p class="result"></p>
+    </div>
+    <script>
+      function getOperands() {
+        const op1 = parseFloat(
+          document.querySelector('input[name="op1"]').value
+        );
+        const op2 = parseFloat(
+          document.querySelector('input[name="op2"]').value
+        );
+        return { op1, op2 };
+      }
+
+      const sum = () => {
+        const { op1, op2 } = getOperands();
+        if (!(op1 && op2)) {
+          alert("Son necesarios dos operandos");
+          return;
+        }
+        result = op1 + op2;
+        console.log(op1, op2);
+        document.querySelector(
+          ".result"
+        ).innerHTML = `El resultado de la suma es : ${result}`;
+        return result;
+      };
+
+      const rest = () => {
+        const { op1, op2 } = getOperands();
+        if (!(op1 && op2)) {
+          alert("Son necesarios dos operandos");
+          return;
+        }
+        result = op1 - op2;
+        document.querySelector(
+          ".result"
+        ).innerHTML = `El resultado de la resta es : ${result}`;
+        return result;
+      };
+
+      const mult = () => {
+        const { op1, op2 } = getOperands();
+        if (!(op1 && op2)) {
+          alert("Son necesarios dos operandos");
+          return;
+        }
+        result = op1 * op2;
+        document.querySelector(
+          ".result"
+        ).innerHTML = `El resultado de la multiplicación es : ${result}`;
+        return result;
+      };
+
+      const divide = () => {
+        const { op1, op2 } = getOperands();
+        if (!(op1 && op2)) {
+          alert("Son necesarios dos operandos");
+          return;
+        }
+        result = op1 / op2;
+        document.querySelector(
+          ".result"
+        ).innerHTML = `El resultado de la división es : ${result}`;
+        return result;
+      };
+    </script>
+  </body>
+</html>
