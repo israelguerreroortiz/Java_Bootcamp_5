@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">Agregar Elemento</button>
+    <button id="remove">Eliminar elemento</button>
+    <ul class="products"></ul>
+
+    <script>
+        let createButton = document.querySelector('#button');
+        let removeButton = document.querySelector('#remove');
+        let ul = document.querySelector('.products');
+        createButton.addEventListener('click', () => {
+            let li = document.createElement('li');
+            li.textContent = 'Elemento nuevo';
+            ul.appendChild(li);
+        });
+        removeButton.addEventListener('click', () => {
+            if (ul.lastChild) {
+                ul.removeChild(ul.lastChild);
+            }
+        });
+    </script>
+</body>
+</html>

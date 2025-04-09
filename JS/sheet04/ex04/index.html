@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        display: block;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="boton">Cambiar imagen</button>
+    <img
+      src="https://inkscape.app/wp-content/uploads/imagen-vectorial.webp"
+      alt="Loro"
+    />
+    <script>
+      let img = document.querySelector("img");
+      let loro =
+        "https://inkscape.app/wp-content/uploads/imagen-vectorial.webp";
+      let feliz = "https://www.educima.com/imagen-alegre-s19863.jpg";
+      let boton = document.querySelector("#boton");
+      boton.addEventListener("click", () => {
+        if (img.src == loro) {
+          img.src = feliz;
+        } else if (img.src == feliz) {
+          img.src = loro;
+        }
+      });
+    </script>
+  </body>
+</html>
