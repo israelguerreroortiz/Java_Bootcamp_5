@@ -90,7 +90,7 @@ body::after {
   }
 }
 
-.main-section {
+.pokemon-container {
   display: grid;
   place-content: center;
   text-align: center;

@@ -13,7 +13,7 @@ async function getPokemonsData() {
     const pokemonImages = pokemonDetails.map(pokemon => pokemon.sprites.front_default);
     const pokemonID = pokemonDetails.map(pokemon => pokemon.id);
     const pokemonTypes = pokemonDetails.map(pokemon => pokemon.types.map(typeInfo => typeInfo.type.name));
-    return {pokemonNames, pokemonImages, pokemonID, pokemonTypes};
+    return { pokemonNames, pokemonImages, pokemonID, pokemonTypes };
 };
 
 // img id nombre tipos evolucion
@@ -32,8 +32,52 @@ const pokemonEvolutions = async () => {
 };
 
 const renderPokemonCards = async () => {
-    const {pokemonNames, pokemonImages, pokemonID, pokemonTypes} = await getPokemonsData();
-    
-}
-renderPokemonCards()
-  
+    const { pokemonNames, pokemonImages, pokemonID, pokemonTypes } = await getPokemonsData();
+    const container = document.querySelector('.pokemon-container');
+
+    pokemonNames.forEach(async (name, index) => {
+        const card = document.createElement('article');
+        card.classList.add('pokemon-card');
+        const pokemonEvo = await pokemonEvolutions();
+        if (pokemonEvo[index]) {
+            card.innerHTML = `
+            <div class="pokemon-img-container">
+              <p class="pokemon-id">ID / ${pokemonID[index]}</p>
+              <img
+                src="${pokemonImages[index]}"
+                alt="${name}"
+              />
+            </div>
+            <div class="pokemon-info">
+              <h2 class="pokemon-name">${name}</h2>
+              <div class="pokemon-types">
+                ${pokemonTypes[index].map(type => `<span class="type ${type}">${type}</span>`).join('')}
+              </div>
+            <div class="pokemon-evolution">
+              <p>Evoluciona de:</p>
+              <p>${pokemonEvo[index].name}</p>
+            </div>
+            </div>
+          </article>`;
+        }
+        else {
+            card.innerHTML = `
+            <div class="pokemon-img-container">
+              <p class="pokemon-id">ID / ${pokemonID[index]}</p>
+              <img
+                src="${pokemonImages[index]}"
+                alt="${name}"
+              />
+            </div>
+            <div class="pokemon-info">
+              <h2 class="pokemon-name">${name}</h2>
+              <div class="pokemon-types">
+                ${pokemonTypes[index].map(type => `<span class="type ${type}">${type}</span>`).join('')}
+              </div>
+            </div>
+          </article>`;
+        }
+        container.appendChild(card);
+    });
+};
+renderPokemonCards();
