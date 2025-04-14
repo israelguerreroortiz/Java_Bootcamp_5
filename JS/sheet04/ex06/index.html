@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background-color: cadetblue;
+    }
+    .wrapper {
+        display: grid;
+        place-content: center;
+        height: 80vh;
+        #contador {
+            margin: 0 auto;
+            background-color: aliceblue;
+            width: fit-content;
+            padding: 1rem;
+            border: 1px solid black;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        button {
+            padding: 0.5rem;
+            background-color: rgb(203, 220, 20);
+        }
+    }
+</style>
+<body>
+    <div class="wrapper">
+        <div id="contador">0</div>
+        <div class="flex-container">
+            <button id="incrementar">Incrementar</button>
+            <button id="decrementar">Decrementar</button>
+        </div>
+    </div>
+    <script>
+        let contador = document.querySelector('#contador');
+        let incrementar = document.querySelector('#incrementar');
+        let decrementar = document.querySelector('#decrementar');
+        let number = 0;
+        incrementar.addEventListener('click', () => {
+            number++;
+            contador.innerHTML = number;
+        });
+        decrementar.addEventListener('click', () => {
+            number--;
+            contador.innerHTML = number;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="es">
+      <head>
+        <meta charset="UTF-8" />
+        <title>Ejercicio 5</title>
+      </head>
+      <body>
+        <form id="formulario">
+          <input type="text" id="nombre" placeholder="Ingresa tu nombre" />
+          <button type="submit">Enviar</button>
+          <p id="error" style="display: none"></p>
+        </form>
+      </body>
+      <script>
+        let nombre = document.querySelector("#nombre");
+        let boton = document.querySelector("button");
+        boton.addEventListener("click", (event) => {
+          event.preventDefault();
+          if (nombre.value.trim() == "") {
+            let error = document.querySelector("#error");
+            error.style.display = "block";
+            error.style.color = "red";
+            error.textContent = "Por favor, rellena el campo.";
+          } else {
+            let error = document.querySelector("#error");
+            error.style.display = "none";
+            alert(`Hola, ${nombre.value}!`);
+          }
+        });
+      </script>
+    </html>
+  </body>
+</html>
