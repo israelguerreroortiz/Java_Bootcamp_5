@@ -1,0 +1,5 @@
+.lista-productos {
+    display: grid;
+    place-content: center;
+    gap: 1.5rem;
+}
