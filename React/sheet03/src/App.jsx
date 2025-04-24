@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Pokedex from "./components/Pokedex";
+import PokeDetail from "./components/PokeDetail";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -17,11 +18,10 @@ function App() {
             />
           </form>
         </header>
-        <section className="pokemon-container">
-          <Routes>
-            <Route path="/" element={<Pokedex filter={search} />} />
-          </Routes>
-        </section>
+        <Routes>
+          <Route path="/" element={<section className="pokemon-container"><Pokedex filter={search} /></section>} />
+          <Route path="/pokemon/:name" element={<PokeDetail />} />
+        </Routes>
       </div>
     </BrowserRouter>
   );

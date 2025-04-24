@@ -27,22 +27,22 @@ function Pokecard({ name, url }) {
   if (evo)
     return (
       <article className="pokemon-card" onClick={() => navigate(`/pokemon/${name}`)}>
-        <div className="pokemon-img-container">
-          <p className="pokemon-id">ID / {details.id}</p>
-          <img src={details.sprites.front_default} alt={name} />
+      <div className="pokemon-img-container">
+        <p className="pokemon-id">ID / {details.id}</p>
+        <img src={details.sprites.front_default} alt={name} />
+      </div>
+      <div className="pokemon-info">
+        <h2 className="pokemon-name">{name}</h2>
+        <div className="pokemon-types">
+        {details.types.map((type, index) => (
+          <p className={`type ${type.type.name}`} key={index}>{type.type.name}</p>
+        ))}
         </div>
-        <div className="pokemon-info">
-          <h2 className="pokemon-name">{name}</h2>
-          <div className="pokemon-types">
-            {details.types.map((type, index) => (
-              <p className="type" key={index}>{type.type.name}</p>
-            ))}
-          </div>
-          <div className="pokemon-evolution">
-            <p>Evoluciona de:</p>
-            <p>{evo.name}</p>
-          </div>
+        <div className="pokemon-evolution">
+        <p>Evoluciona de:</p>
+        <p>{evo.name}</p>
         </div>
+      </div>
       </article>
     );
   else

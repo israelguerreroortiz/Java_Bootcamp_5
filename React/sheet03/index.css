@@ -6,12 +6,6 @@
   text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 h1,
 h2,
 h3,
@@ -163,4 +157,8 @@ body::after {
       }
     }
   }
+}
+
+.pokemon-detail {
+  width: 100%;
 }
