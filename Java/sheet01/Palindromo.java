@@ -2,7 +2,7 @@ package sheet01;
 import java.util.Scanner;
 
 public class Palindromo {
-    void main(String[] args) {
+    public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese una cadena: ");
         String cadena = scanner.nextLine().toLowerCase().replace(" ", "");

@@ -1,6 +1,6 @@
 package sheet01;
 public class HolaMundo {
-     void main() {
+    public static void main(String[] args) {
         System.out.println("¡Hola Mundo!");
     }
 }

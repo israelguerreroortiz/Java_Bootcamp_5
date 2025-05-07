@@ -1,11 +1,12 @@
 package sheet01;
 
 public class Funciones {
-    void main()
+    public static void main(String[] args)
     {
         System.out.println(suma(4, 5));
     }
-    int suma(int i, int x){
+ 
+    static int suma(int i, int x){
         return (i + x);
     }
 }

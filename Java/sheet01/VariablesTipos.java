@@ -1,7 +1,7 @@
 package sheet01;
 
 public class VariablesTipos {
-    void main() {
+    public static void main(String[] args) {
         int number = 9;
         double  precio = 10.5;
         boolean guapo = true;
