@@ -39,8 +39,8 @@ function PokeDetail() {
   return (
     <article className="pokemon-detail">
       <div className="pokemon-img-container">
-        <p className="pokemon-id">ID / {details.id}</p>
         <img src={details.sprites.front_default} alt={name} />
+        <p className="pokemon-id">ID / {details.id}</p>
       </div>
       <div className="pokemon-info">
         <h2 className="pokemon-name">{name}</h2>
@@ -51,9 +51,9 @@ function PokeDetail() {
             </p>
           ))}
         </div>
+        <p>Altura: {details.height}</p>
+        <p>Peso: {details.weight}</p>
       </div>
-      <p>Altura: {details.height}</p>
-      <p>Peso: {details.weight}</p>
     </article>
   );
 }
