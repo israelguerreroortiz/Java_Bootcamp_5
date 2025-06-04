@@ -1,6 +1,14 @@
 package com.example.sheet03.service;
-
+import com.example.sheet03.repository.EstudianteRepository;
+import com.example.sheet03.repository.CursoRepository;
+import com.example.sheet03.model.Estudiante;
+import com.example.sheet03.model.Direccion;
+import com.example.sheet03.model.Curso;
+import jakarta.persistence.*;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 
 @Service
 public class EstudianteService {
@@ -13,13 +21,11 @@ public class EstudianteService {
         this.cursoRepository = cursoRepository;
     }
 
-    // Crear estudiante con su dirección
     public Estudiante crearEstudianteConDireccion(Estudiante estudiante, Direccion direccion) {
         estudiante.setDireccion(direccion); // cascade.ALL en @OneToOne
         return estudianteRepository.save(estudiante);
     }
 
-    // Matricular estudiante en uno o varios cursos
     public void matricularEstudiante(Long estudianteId, List<Long> cursoIds) {
         Estudiante estudiante = estudianteRepository.findById(estudianteId)
                 .orElseThrow(() -> new EntityNotFoundException("Estudiante no encontrado"));
@@ -33,7 +39,6 @@ public class EstudianteService {
         estudianteRepository.save(estudiante); // persistimos los cambios
     }
 
-    // Actualizar dirección del estudiante
     public Estudiante actualizarDireccion(Long estudianteId, Direccion nuevaDireccion) {
         Estudiante estudiante = estudianteRepository.findById(estudianteId)
                 .orElseThrow(() -> new EntityNotFoundException("Estudiante no encontrado"));

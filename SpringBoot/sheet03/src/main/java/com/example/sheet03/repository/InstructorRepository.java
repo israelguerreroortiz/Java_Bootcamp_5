@@ -1,4 +1,10 @@
 package com.example.sheet03.repository;
 
-public interface InstructorRepository {
+import com.example.sheet03.model.Instructor;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+public interface InstructorRepository extends JpaRepository<Instructor, Long> {
+
 }
+
